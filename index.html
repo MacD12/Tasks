@@ -99,6 +99,26 @@
     </section>
 
     <script rel="stylesheet" href="assest/js/bootstrap.js" ></script>
+
+    <script></script>
+    <script>
+        const startButton = document.getElementById("startbtn");
+        const mansDiv = document.querySelector(".mans");
+
+        let intervalId;
+
+        startButton.addEventListener("click", () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+            intervalId = setInterval(moveLastToFirst, 1000); // Change the interval time as needed
+
+            function moveLastToFirst() {
+                const lastChild = mansDiv.lastElementChild;
+                mansDiv.insertBefore(lastChild, mansDiv.firstElementChild);
+            }
+        });
+    </script>
 </body>
 
 </html>
