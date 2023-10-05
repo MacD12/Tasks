@@ -103,21 +103,27 @@
     <script></script>
     <script>
         const startButton = document.getElementById("startbtn");
+        const stopButton = document.getElementById("stopbtn");
         const mansDiv = document.querySelector(".mans");
 
         let intervalId;
 
         startButton.addEventListener("click", () => {
             if (intervalId) {
-                clearInterval(intervalId);
+            clearInterval(intervalId);
             }
             intervalId = setInterval(moveLastToFirst, 1000); // Change the interval time as needed
 
-            function moveLastToFirst() {
+        function moveLastToFirst() {
                 const lastChild = mansDiv.lastElementChild;
                 mansDiv.insertBefore(lastChild, mansDiv.firstElementChild);
             }
         });
+
+stopButton.addEventListener("click", () => {
+    clearInterval(intervalId); // Stop the interval when "Stop" button is clicked
+});
+
     </script>
 </body>
 
